@@ -1,0 +1,126 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+
+
+
+<div id="header">
+    <h1>Boekenlijst</h1>
+</div>
+
+<div class="topnav">
+    <button mat-raised-button color="primary" (click)="showList()">Toon boekenlijst</button>
+</div>
+
+<div class="column">
+    <div class="boekToevoegen">
+        <h3>Boek toevoegen:</h3>
+
+
+        <form>
+            Titel <input [(ngModel)]="boeken.titel" type="text" name="titel" placeholder="Titel">
+        </form>
+
+
+        <form>
+            Auteur <input [(ngModel)]="boeken.auteur" type="text" name="auteur" placeholder="Auteur">
+        </form>
+
+        <div>
+            <label>Beoordeling </label>
+            <select [(ngModel)]="boeken.beoordeling">
+                <option value="">  </option>
+                <option value="1"> 1 </option>
+                <option value="2"> 2 </option>
+                <option value="3"> 3 </option>
+                <option value="4"> 4 </option>
+                <option value="5"> 5 </option>
+                <option value="6"> 6 </option>
+                <option value="7"> 7 </option>
+                <option value="8"> 8 </option>
+                <option value="9"> 9 </option>
+                <option value="10"> 10 </option>
+            </select>
+        </div>
+
+        <div class="datumMaand">
+            <label> Datum uitgelezen </label>
+            <select [(ngModel)]="boeken.datumMaand">
+                <option value=""> </option>
+                <option value="jan"> Jan </option>
+                <option value="feb"> Feb </option>
+                <option value="mar"> Mar </option>
+                <option value="apr"> Apr </option>
+                <option value="mei"> Mei </option>
+                <option value="jun"> Jun </option>
+                <option value="jul"> Jul </option>
+                <option value="aug"> Aug </option>
+                <option value="sep"> Sep </option>
+                <option value="okt"> Okt </option>
+                <option value="nov"> Nov </option>
+                <option value="dec"> Dec </option>
+            </select>
+        </div>
+
+
+        <div class="datumJaar">
+            <select [(ngModel)]="boeken.datumJaar">
+                <option value=""> </option>
+                <option *ngFor="let x of jaartallen" [value]="x"> {{x}} </option>
+            </select>
+        </div>
+
+        <div>
+            <label>Genre</label>
+            <select [(ngModel)]="boeken.genre">
+                <option value="-">-</option>
+                <option value="biografie en waargebeurd"> Biografie & Waargebeurd </option>
+                <option value="Chicklit & New Adult"> Chicklit & New Adult </option>
+                <option value="Engelstalig"> Engelstalig </option>
+                <option value="Essays en Columns"> Essays en Columns </option>
+                <option value="Familie- & Streekromans"> Familie- & Streekromans </option>
+                <option value="Fantasy & Sciencefiction"> Fantasy & Sciencefiction </option>
+                <option value="Historische Romans"> Historische Romans </option>
+                <option value="Liefde & Lust"> Liefde & Lust </option>
+                <option value="Literaire thrillers"> Literaire thrillers </option>
+                <option value="Literatuur & Klassiekers"> Literatuur & Klassiekers </option>
+                <option value="Misdaad & Complot"> Misdaad & Complot </option>
+                <option value="Poëzie"> Poëzie </option>
+                <option value="Romans"> Romans </option>
+                <option value="Spanning"> Spanning </option>
+                <option value="Thrillers"> Thrillers </option>
+                <option value="Verhalenbundels"> Verhalenbundels </option>
+                <option value="Verhalende non-fictie"> Verhalende non-fictie </option>
+            </select>
+        </div>
+
+        <form>
+            <div>Recensie:</div>
+            <textarea style="width: 100%" ref-textarea [(ngModel)]="boeken.recensie" rows="4" name="recensie"
+                placeholder="typ hier je recensie"></textarea>
+        </form>
+
+        <button mat-raised-button type="submit" (click)="save()">Opslaan</button>
+    </div>
+</div>
+
+
+<div class="column">
+    <div class="boekZoeken">
+        <h3>Boek zoeken op:</h3>
+        <form>
+            <div>Titel</div>
+             <input style="width: 75%" [(ngModel)]="zoeken" type="text" name="zoeken" placeholder="Titel">
+            <button  mat-stroked-button  type="submit" (click)="findByTitel(zoeken)">Zoeken <i class="material-icons">search</i> </button>
+        </form>
+
+        <form>
+            <div>Auteur</div> 
+            <input style="width: 75%" [(ngModel)]="zoeken1" type="text" name="zoeken" placeholder="Auteur">
+            <button mat-stroked-button type="submit" (click)="findByAuteur(zoeken1)">Zoeken <i class="material-icons">search</i></button>
+        </form>
+    </div>
+
+
+
+
+    <!-- <button *ngIf="laatZien" mat-stroked-button (click)="delete()">Maak leeg</button> -->
+</div>

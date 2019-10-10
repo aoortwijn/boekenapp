@@ -1,0 +1,60 @@
+<button *ngIf="laatZien" mat-stroked-button (click)="delete1()">Sluit lijst</button>
+<h1>
+
+
+</h1>
+
+<table *ngIf="laatZien3" matSort (matSortChange)="sortData($event)" >
+  <th mat-sort-header="titel">Titel</th>
+  <th mat-sort-header="auteur">Auteur</th>
+  <th mat-sort-header="beoordeling">Beoordeling</th>
+  <th>Datum uitgelezen</th>
+  <th mat-sort-header="genre">Genre</th>
+  <th >Recensie</th>
+  <tr *ngFor="let boeken of boekens">
+    <td>{{boeken.titel}} </td>
+    <td>{{boeken.auteur}} </td>
+    <td id="beoordeling">{{boeken.beoordeling}}</td>
+    <td>{{boeken.datumMaand}} {{boeken.datumJaar}}</td>
+    <td>{{boeken.genre}} </td>
+    <td>{{boeken.recensie}}</td>
+
+
+    <td><button mat-mini-fab color="warn" matTooltip="Verwijder uit boekenlijst"
+        aria-label="Button that displays a tooltip when focused or hovered over" (click)="delete(boeken.id)">X</button>
+    </td>
+
+  </tr>
+</table>
+
+
+<button *ngIf="laatZien2" mat-stroked-button (click)="delete2()">Sluit lijst</button>
+<h1>
+
+
+
+</h1>
+
+
+  <table *ngIf="laatZien4" matSort (matSortChange)="sortData2($event)">
+      <th mat-sort-header="titel">Titel</th>
+      <th mat-sort-header="auteur">Auteur</th>
+      <th mat-sort-header="beoordeling">Beoordeling</th>
+      <th>Datum uitgelezen</th>
+      <th mat-sort-header="genre">Genre</th>
+      <th >Recensie</th>
+      <tr *ngFor="let boeken of boekenen">
+        <td>{{boeken.titel}} </td>
+        <td>{{boeken.auteur}} </td>
+        <td id="beoordeling">{{boeken.beoordeling}}</td>
+        <td>{{boeken.datumMaand}} {{boeken.datumJaar}}</td>
+        <td>{{boeken.genre}} </td>
+        <td>{{boeken.recensie}}</td>
+
+      <hr>
+      <td><button mat-mini-fab color="warn" matTooltip="Verwijder uit boekenlijst"
+          aria-label="Button that displays a tooltip when focused or hovered over"
+          (click)="delete(boeken.id)">X</button></td>
+      <hr>
+    </tr>
+  </table>
